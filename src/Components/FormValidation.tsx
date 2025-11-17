@@ -32,9 +32,7 @@ const Form: React.FC = () => {
     interests: [],
     birthDate: "",
   });
-
   const [errors, setErrors] = useState<ErrorType>({});
-
   const validationSchema = Yup.object({
     firstName: Yup.string().required("FirstName is required"),
     lastName: Yup.string().required("LastName is required"),
@@ -52,7 +50,6 @@ const Form: React.FC = () => {
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Confirm password is required"),
-
     age: Yup.number()
       .transform((value, originalValue) =>
         originalValue === "" ? undefined : value
@@ -60,46 +57,35 @@ const Form: React.FC = () => {
       .required("Age is required")
       .min(18, "Minimum age is 18")
       .max(80, "Maximum age is 80"),
-
     gender: Yup.string().required("Gender is required"),
-
     interests: Yup.array()
       .of(Yup.string())
       .min(1, "Select at least one interest")
       .required("Interest is required"),
-
     birthDate: Yup.string().required("Birthdate is required"),
   });
-
   const handleChange = (e: any) => {
     const { name, value } = e.target;
-
     setFormData({
       ...formData,
       [name]: value,
     });
   };
-
   const handleCheckbox = (e: any) => {
     const { name, checked } = e.target;
-
     let updated = [...formData.interests];
-
     if (checked) {
       updated.push(name);
     } else {
       updated = updated.filter((i) => i !== name);
     }
-
     setFormData({
       ...formData,
       interests: updated,
     });
   };
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
     try {
       await validationSchema.validate(formData, { abortEarly: false });
       alert("Form submitted successfully");
@@ -114,7 +100,6 @@ const Form: React.FC = () => {
       }
     }
   };
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -129,7 +114,6 @@ const Form: React.FC = () => {
           />
           {errors.firstName && <div className="error">{errors.firstName}</div>}
         </div>
-
         {/* Last Name */}
         <div>
           <label>Last Name:</label>
