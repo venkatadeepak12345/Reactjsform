@@ -1,0 +1,102 @@
+/* === FORM CONTAINER === */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  font-family: "Arial", sans-serif;
+}
+
+/* === LABEL & INPUT === */
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* === INPUTS / SELECT / CHECKBOX STYLE === */
+input,
+select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: royalblue;
+  box-shadow: 0 0 4px rgba(65, 105, 225, 0.4);
+}
+
+/* === CHECKBOX GROUP === */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checkbox-group label {
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+.checkbox-group input {
+  margin-right: 5px;
+}
+
+/* === SUBMIT BUTTON === */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: royalblue;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #0a3cba;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 480px) {
+  form {
+    padding: 18px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  input,
+  select {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+.error {
+  color: green;
+  font-size: 13px;
+  margin-top: 3px;
+}
